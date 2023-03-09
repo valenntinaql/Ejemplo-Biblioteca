@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Biblioteca Egg</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div>
+                <h2>Carga el Libro aquí!</h2>
+            </div>
+        </header>
+        <div>
+            <div th:if="${exito}!=null">
+                <div>
+                    <h5>Exito!</h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+            
+            <div th:if="${error}!=null">
+                <div>
+                    <h5>Error 👎</h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+            
+            <form th:action="@{/libro/registro/}" method="POST">
+                <div>
+                    <input type="text" name="nombre" placeholder="Nombre del Libro">
+                    <input type="number" name="isbn" placeholder="ISBN">
+                    <input type="number" name="ejemplares" placeholder="Cantidad de Ejemplares">"
+                </div>
+
+                <div>
+                    <select name="idAutor">
+                        <option>Seleccionar Autor</option>
+                    
+                        <option th:each="autor : ${autores}"
+                                th:value="${autor.id}"
+                                th:text="${autor.nombre}"
+                                />
+                    </select>
+                </div>
+            
+                <div>
+                    <select name="idEditorial">
+                        <option>Seleccionar Editorial</option>
+                    
+                        <option th:each="editorial : ${editoriales}"
+                            th:value="${editorial.id}"
+                            th:text="${editorial.nombre}"
+                            />
+                    </select>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+            
+            <section>
+                <div>
+                    <div>
+                        <a th:href="@{/}">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

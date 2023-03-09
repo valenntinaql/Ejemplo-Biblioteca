@@ -11,6 +11,33 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>ESTAMOS EN EL INDEX!!</div>
+        <li>
+            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Libros
+            </a>
+            <ul aria-labelledby="navbarDropdown">
+                        
+                <li><a th:href="@{/libro/registrar}">Crear Libro</a></li>
+                <li><a th:href="@{/libro/lista}">Listar Libros</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Editoriales
+            </a>
+            <ul aria-labelledby="navbarDropdown">
+                <li><a th:href="@{/editorial/registrar}">Crear Editorial</a></li>
+                <li><a th:href="@{/editorial/lista}">Listar Editoriales</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Autores
+            </a>
+            <ul aria-labelledby="navbarDropdown">
+                <li><a th:href="@{/autor/registrar}">Crear Autor</a></li>                      
+                <li><a th:href="@{/autor/lista}">Listar Autores</a></li>
+            </ul>
+        </li>
     </body>
 </html>
